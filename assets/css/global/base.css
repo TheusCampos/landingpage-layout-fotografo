@@ -3,5 +3,5 @@ body {
   color: var(--ink);
   font-family: var(--font-serif);
   overflow-x: hidden;
-  width: 100%;
+  width: 100vw;
 }

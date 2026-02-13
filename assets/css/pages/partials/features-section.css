@@ -23,12 +23,9 @@
 }
 
 .feature-icon {
-  width: 2rem;
-  height: 2rem;
+  font-size: 2rem;
   margin-bottom: 20px;
   color: var(--accent);
-  fill: currentColor;
-  display: inline-block;
 }
 
 .feature-title {

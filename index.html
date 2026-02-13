@@ -2,83 +2,89 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Template de landing page brutalista, responsiva e animada com GSAP.">
-    <meta name="keywords" content="template, landing page, brutalismo, gsap, scrolltrigger, acessibilidade, performance">
-    <meta name="author" content="Seu Nome ou Empresa">
-    <link rel="canonical" href="https://example.com/">
-
-    <meta property="og:title" content="Brutalist Studio Template">
-    <meta property="og:description" content="Landing page brutalista com animações suaves e foco em performance.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kairos Studio - Editorial Vision. Estética Brutalista e Moda Conceitual.">
+    <meta name="keywords" content="Kairos, Studio, Moda, Editorial, Design, Brutalismo, Fotografia">
+    <meta name="author" content="Kairos Studio">
+    <meta property="og:title" content="KAIROS | Editorial Vision">
+    <meta property="og:description" content="Nós não capturamos momentos; nós criamos alucinações visuais.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://example.com/">
-    <meta property="og:image" content="assets/imagens/og-image.svg">
+    <meta property="og:image" content="https://example.com/assets/favicons/icon-512.png">
+    <link rel="canonical" href="https://example.com/">
     <meta name="theme-color" content="#000000">
     
-    <title>Brutalist Studio Template</title>
+    <title>KAIROS | Editorial Vision</title>
     
-    <link rel="icon" href="assets/favicons/favicon.svg" type="image/svg+xml">
-    <link rel="manifest" href="assets/favicons/site.webmanifest">
+    <!-- Favicons -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000000'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' font-family='Arial, sans-serif' font-size='36' fill='%23ffffff'%3EK%3C/text%3E%3C/svg%3E">
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,900;1,6..96,400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Styles -->
     <link rel="stylesheet" href="assets/css/index.css">
+    
+    <!-- GSAP (CDN) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+    <!-- Custom Cursor -->
     <div class="cursor" id="cursor"><span class="cursor-text">VIEW</span></div>
 
-    <button class="menu-btn hover-target" type="button" data-menu-button aria-controls="menu-overlay" aria-expanded="false">MENU +</button>
+    <!-- Menu Button -->
+    <button class="menu-btn hover-target" type="button" aria-controls="menu-overlay" aria-expanded="false">MENU +</button>
 
-    <div class="menu-overlay" id="menu-overlay" data-menu-overlay aria-hidden="true">
-        <nav class="menu-list" aria-label="Menu principal">
-            <a href="#work" class="menu-item hover-target">Work</a>
-            <a href="#about" class="menu-item hover-target">About</a>
-            <a href="#contact" class="menu-item hover-target">Contact</a>
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menu-overlay" aria-hidden="true">
+        <nav class="menu-list">
+            <a href="#work" class="menu-item hover-target">WORK</a>
+            <a href="#about" class="menu-item hover-target">ABOUT</a>
+            <a href="#contact" class="menu-item hover-target">CONTACT</a>
         </nav>
     </div>
 
-    <header class="hero" aria-label="Seção inicial">
+    <!-- Header / Hero Section -->
+    <header class="hero">
         <div class="hero-title">
-            <h1 class="display-text blend">
-                <span class="hero-title__line" style="transform: translateX(-50px);">BRUTALIST</span>
-                <span class="hero-title__line hero-title__line--italic" style="transform: translateX(50px);">STUDIO</span>
-            </h1>
+            <h1 class="display-text blend" style="transform: translateX(-50px);">KAIROS</h1>
+            <h1 class="display-text blend" style="transform: translateX(50px); font-style: italic;">STUDIO</h1>
         </div>
         
-        <img src="assets/imagens/placeholder-portrait.svg" class="hero-img main" data-speed="2" alt="Imagem principal do template" loading="eager" width="1000" height="1500">
-        <img src="assets/imagens/placeholder-portrait-2.svg" class="hero-img sec" data-speed="-1" alt="Imagem secundária do template" loading="lazy" width="800" height="1200">
-        <img src="assets/imagens/placeholder-portrait-2.svg" class="hero-img ter" data-speed="1" alt="Imagem terciária do template" loading="lazy" width="800" height="1200">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="hero-img main" data-speed="2" alt="Modelo Editorial Principal" loading="eager" decoding="async" width="1000" height="1500">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="hero-img sec" data-speed="-1" alt="Modelo Editorial Secundário" loading="lazy" decoding="async" width="800" height="1200">
+        <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="hero-img ter" data-speed="1" alt="Modelo Editorial Terciário" loading="lazy" decoding="async" width="800" height="1200">
 
         <div class="scroll-indicator">SCROLL TO DISCOVER</div>
     </header>
 
-    <main id="main-content">
-
     <!-- Editorial / Work Section (Horizontal Scroll) -->
-    <section class="scroll-container" id="work" aria-label="Projetos em destaque">
+    <section class="scroll-container" id="work" aria-label="Galeria de Editoriais">
         <div class="horizontal-wrapper">
             <article class="editorial-item hover-target">
                 <span class="ed-number">01</span>
-                <img src="assets/imagens/placeholder-landscape.svg" alt="Projeto 01" loading="lazy" width="1200" height="800">
-                <h2 class="ed-title">Projeto 01</h2>
+                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Capa Vogue Italia" loading="lazy" decoding="async" width="800" height="1200">
+                <h2 class="ed-title">Vogue Italia</h2>
             </article>
             <article class="editorial-item hover-target">
                 <span class="ed-number">02</span>
-                <img src="assets/imagens/placeholder-landscape.svg" alt="Projeto 02" loading="lazy" width="1200" height="800">
-                <h2 class="ed-title">Projeto 02</h2>
+                <img src="https://images.unsplash.com/photo-1502323777036-f29e3972d82f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Capa Noir Essence" loading="lazy" decoding="async" width="800" height="1200">
+                <h2 class="ed-title">Noir Essence</h2>
             </article>
             <article class="editorial-item hover-target">
                 <span class="ed-number">03</span>
-                <img src="assets/imagens/placeholder-landscape.svg" alt="Projeto 03" loading="lazy" width="1200" height="800">
-                <h2 class="ed-title">Projeto 03</h2>
+                <img src="https://i.pinimg.com/736x/aa/51/62/aa5162dea6f429220512bc7547578995.jpg" alt="Capa Neo Tokyo" loading="lazy" decoding="async" width="736" height="1104">
+                <h2 class="ed-title">Neo Tokyo</h2>
             </article>
             <article class="editorial-item hover-target">
                 <span class="ed-number">04</span>
-                <img src="assets/imagens/placeholder-landscape.svg" alt="Projeto 04" loading="lazy" width="1200" height="800">
-                <h2 class="ed-title">Projeto 04</h2>
+                <img src="https://i.pinimg.com/1200x/59/85/37/598537e02baad1152dd52f880bf722ba.jpg" alt="Capa Acid Bloom" loading="lazy" decoding="async" width="1200" height="1800">
+                <h2 class="ed-title">Acid Bloom</h2>
             </article>
         </div>
     </section>
@@ -88,61 +94,61 @@
         <h2 class="display-text reveal" style="font-size: 5vw; color: var(--ink);">EXPERTISE</h2>
         <div class="features-grid">
             <div class="feature-card hover-target">
-                <svg class="feature-icon" viewBox="0 0 24 24" role="img" aria-label="Serviço: Produção Visual"><path d="M9 3h6l1.5 2H20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3.5L9 3Zm3 6a5 5 0 1 0 0 10a5 5 0 0 0 0-10Zm0 2a3 3 0 1 1 0 6a3 3 0 0 1 0-6Z"/></svg>
-                <h3 class="feature-title">Produção Visual</h3>
-                <p class="feature-desc">Conteúdo de alta qualidade para campanhas, produtos e portfólios, com foco em consistência e direção criativa.</p>
+                <i class="feature-icon fa-solid fa-camera"></i>
+                <h3 class="feature-title">Editorial Photography</h3>
+                <p class="feature-desc">Direção de arte e fotografia para revistas de alta moda, com foco em narrativa visual e estética avant-garde.</p>
             </div>
             <div class="feature-card hover-target">
-                <svg class="feature-icon" viewBox="0 0 24 24" role="img" aria-label="Serviço: Motion"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v12h16V6H4Zm6 2l6 4l-6 4V8Z"/></svg>
-                <h3 class="feature-title">Motion</h3>
-                <p class="feature-desc">Animações, vídeos e storytelling para web e social, otimizados para performance e entrega rápida.</p>
+                <i class="feature-icon fa-solid fa-film"></i>
+                <h3 class="feature-title">Fashion Film</h3>
+                <p class="feature-desc">Produção cinematográfica para campanhas digitais, capturando movimento e atmosfera em 4K e 8K.</p>
             </div>
             <div class="feature-card hover-target">
-                <svg class="feature-icon" viewBox="0 0 24 24" role="img" aria-label="Serviço: Direção Criativa"><path d="M6 2h2v3H6V2Zm10 0h2v3h-2V2ZM3 6h3v2H3V6Zm15 0h3v2h-3V6ZM11 7h2v10h-2V7Zm-4 4h10v2H7v-2Zm-2 8h14v2H5v-2Z"/></svg>
-                <h3 class="feature-title">Direção Criativa</h3>
-                <p class="feature-desc">Sistema visual coeso: tipografia, cores, linguagem e guidelines para manter a marca consistente em todos os canais.</p>
+                <i class="feature-icon fa-solid fa-wand-magic-sparkles"></i>
+                <h3 class="feature-title">Creative Direction</h3>
+                <p class="feature-desc">Concepção completa de identidade visual, desde o moodboard até a pós-produção final.</p>
             </div>
             <div class="feature-card hover-target">
-                <svg class="feature-icon" viewBox="0 0 24 24" role="img" aria-label="Serviço: Design"><path d="M12 2l9 5v10l-9 5l-9-5V7l9-5Zm0 2.3L5 8v8l7 3.9l7-3.9V8l-7-3.7Zm-1 4.7h2v8h-2V9Z"/></svg>
-                <h3 class="feature-title">Design</h3>
-                <p class="feature-desc">Layouts e componentes reutilizáveis com foco em UX, acessibilidade e escalabilidade para produtos e landing pages.</p>
+                <i class="feature-icon fa-solid fa-cube"></i>
+                <h3 class="feature-title">Set Design</h3>
+                <p class="feature-desc">Construção de cenários físicos e digitais que desafiam a percepção de espaço e realidade.</p>
             </div>
         </div>
     </section>
 
     <!-- Gallery Section -->
-    <section class="gallery-section" aria-label="Galeria">
+    <section class="gallery-section" aria-label="Galeria Selecionada">
         <div class="gallery-grid">
             <div class="gallery-item hover-target">
-                <img src="assets/imagens/placeholder-landscape.svg" alt="Imagem 01" loading="lazy" width="1200" height="800">
-                <div class="gallery-overlay"><span class="sans-bold">Item 01</span></div>
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Galeria 1" loading="lazy" decoding="async" width="800" height="1200">
+                <div class="gallery-overlay"><span class="sans-bold">FW 2024</span></div>
             </div>
             <div class="gallery-item hover-target">
-                <img src="assets/imagens/placeholder-landscape.svg" alt="Imagem 02" loading="lazy" width="1200" height="800">
-                <div class="gallery-overlay"><span class="sans-bold">Item 02</span></div>
+                <img src="https://i.pinimg.com/1200x/15/0b/70/150b701af3e3c14f8c8a027afb5c6c77.jpg" alt="Galeria 2" loading="lazy" decoding="async" width="1200" height="1800">
+                <div class="gallery-overlay"><span class="sans-bold">Street</span></div>
             </div>
             <div class="gallery-item hover-target">
-                <img src="assets/imagens/placeholder-landscape.svg" alt="Imagem 03" loading="lazy" width="1200" height="800">
-                <div class="gallery-overlay"><span class="sans-bold">Item 03</span></div>
+                <img src="https://images.unsplash.com/photo-1485230405346-71acb9518d9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Galeria 3" loading="lazy" decoding="async" width="800" height="1200">
+                <div class="gallery-overlay"><span class="sans-bold">Studio</span></div>
             </div>
             <div class="gallery-item hover-target">
-                <img src="assets/imagens/placeholder-landscape.svg" alt="Imagem 04" loading="lazy" width="1200" height="800">
-                <div class="gallery-overlay"><span class="sans-bold">Item 04</span></div>
+                <img src="https://i.pinimg.com/736x/24/4c/49/244c49b8dec334044494a74a2a7f5893.jpg" alt="Galeria 4" loading="lazy" decoding="async" width="736" height="1104">
+                <div class="gallery-overlay"><span class="sans-bold">Texture</span></div>
             </div>
             <div class="gallery-item hover-target">
-                <img src="assets/imagens/placeholder-landscape.svg" alt="Imagem 05" loading="lazy" width="1200" height="800">
-                <div class="gallery-overlay"><span class="sans-bold">Item 05</span></div>
+                <img src="https://i.pinimg.com/736x/43/a7/2b/43a72bab703e853b68833c711a134053.jpg" alt="Galeria 5" loading="lazy" decoding="async" width="736" height="1104">
+                <div class="gallery-overlay"><span class="sans-bold">Neon</span></div>
             </div>
             
         </div>
     </section>
 
     <!-- About / Bio Section -->
-    <section class="bio-section" id="about" aria-label="Sobre">
+    <section class="bio-section" id="about" aria-label="Sobre o Studio">
         <p class="manifesto reveal">
-            Este template foi criado para destacar um portfólio com estética brutalista e interações modernas. Substitua textos, imagens e links pelos dados do seu projeto.
+            Nós não capturamos momentos; nós criamos <span>alucinações visuais</span>. A moda não é sobre roupas, é sobre atitude, geometria e a quebra do silêncio. 
             <br><br>
-            Foco em performance, acessibilidade e responsividade.
+            Baseado em São Paulo. Fotografando o caos global.
         </p>
     </section>
 
@@ -152,30 +158,28 @@
         <div class="testimonial-container">
             <div class="testimonial-card hover-target">
                 <div class="quote-icon">“</div>
-                <p class="testimonial-text">Interface forte, clara e muito bem executada. O layout se adapta perfeitamente e mantém personalidade.</p>
-                <div class="testimonial-author">Cliente A</div>
-                <div class="testimonial-role">Direção Criativa</div>
+                <p class="testimonial-text">A Kairos transformou nossa campanha em uma obra de arte. A visão brutalista elevou nossa marca a um novo patamar de sofisticação.</p>
+                <div class="testimonial-author">Sarah Connor</div>
+                <div class="testimonial-role">Creative Director, Cyberdyne Fashion</div>
             </div>
             <div class="testimonial-card hover-target">
                 <div class="quote-icon">“</div>
-                <p class="testimonial-text">As animações são suaves e não atrapalham a leitura. Excelente equilíbrio entre impacto e usabilidade.</p>
-                <div class="testimonial-author">Cliente B</div>
-                <div class="testimonial-role">Produto Digital</div>
+                <p class="testimonial-text">Impecável. A atenção aos detalhes e a ousadia nas composições são inigualáveis no mercado atual.</p>
+                <div class="testimonial-author">Rick Deckard</div>
+                <div class="testimonial-role">Editor-in-Chief, Replicant Mag</div>
             </div>
             <div class="testimonial-card hover-target">
                 <div class="quote-icon">“</div>
-                <p class="testimonial-text">Código limpo e estrutura organizada. Um ótimo ponto de partida para novos projetos e templates.</p>
-                <div class="testimonial-author">Cliente C</div>
-                <div class="testimonial-role">Engenharia</div>
+                <p class="testimonial-text">Não é apenas fotografia, é uma experiência sensorial completa. O resultado superou todas as expectativas.</p>
+                <div class="testimonial-author">Trinity Moss</div>
+                <div class="testimonial-role">CEO, Matrix Models</div>
             </div>
         </div>
     </section>
 
-    </main>
-
     <!-- Contact / Footer -->
     <div class="footer-wrapper" id="contact">
-        <footer class="footer-container" aria-label="Contato">
+        <footer class="footer-container" id="main-footer">
             
             <!-- Elemento de Zoom (A frase) -->
             <h2 class="cta-text display-text" id="cta-phrase">
@@ -186,22 +190,21 @@
             <!-- Conteúdo Revelado (Contatos) -->
             <div class="contact-info" id="contact-details">
                 <div class="social-links">
-                    <a href="mailto:hello@example.com" class="footer-link hover-target" aria-label="Enviar email">Email</a>
-                    <a href="https://example.com" class="footer-link hover-target" rel="noopener" target="_blank" aria-label="Abrir link externo">Portfolio</a>
-                    <a href="https://example.com" class="footer-link hover-target" rel="noopener" target="_blank" aria-label="Abrir link externo">Social</a>
+                    <a href="mailto:contact@kairos.com" class="footer-link hover-target" aria-label="Enviar email para Kairos Studio">EMAIL ME</a>
+                    <a href="#" class="footer-link hover-target" aria-label="Visitar Instagram">INSTAGRAM</a>
+                    <a href="#" class="footer-link hover-target" aria-label="Visitar LinkedIn">LINKEDIN</a>
                 </div>
                 
                 <div class="credits">
-                    <span>&copy; 2026 Seu Projeto</span>
-                    <span>Brutalist Template</span>
+                    <span>&copy; 2026 Kairos Studio</span>
+                    <span>Estética Brutalista</span>
                 </div>
             </div>
     
         </footer>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Scripts -->
+    <script type="module" src="assets/js/index.js"></script>
 </body>
 </html>

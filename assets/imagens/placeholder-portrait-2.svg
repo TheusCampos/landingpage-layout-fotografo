@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
-  <rect width="800" height="1200" fill="#f0f0f0"/>
-  <rect x="60" y="80" width="680" height="1040" fill="none" stroke="#000000" stroke-width="8"/>
-  <circle cx="640" cy="180" r="56" fill="#ff2a00"/>
-  <text x="100" y="220" font-family="Arial, sans-serif" font-size="52" font-weight="800" fill="#000000">SECONDARY</text>
-  <path d="M100 300h520" stroke="#000000" stroke-width="8" opacity="0.6"/>
-  <path d="M100 360h420" stroke="#000000" stroke-width="8" opacity="0.4"/>
-</svg>
