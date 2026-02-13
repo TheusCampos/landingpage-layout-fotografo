@@ -1,0 +1,14 @@
+:root {
+  /* Cores */
+  --bg: #cdcaca; /* Cinza Concreto */
+  --ink: #000000;
+  --paper: #f0f0f0;
+  --accent: #ff2a00; /* Vermelho Batom */
+  
+  /* Tipografia */
+  --font-serif: 'Bodoni Moda', serif;
+  --font-sans: 'Syne', sans-serif;
+  
+  /* Animação */
+  --easing: cubic-bezier(0.19, 1, 0.22, 1);
+}

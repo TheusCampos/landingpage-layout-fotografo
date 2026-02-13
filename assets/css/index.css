@@ -1,0 +1,13 @@
+@import url('global/variables.css');
+@import url('global/reset.css');
+@import url('global/base.css');
+@import url('global/utilities.css');
+
+@import url('pages/partials/hero-section.css');
+@import url('pages/partials/about-section.css');
+@import url('pages/partials/services-section.css');
+@import url('pages/partials/features-section.css'); /* New */
+@import url('pages/partials/gallery-section.css'); /* New */
+@import url('pages/partials/testimonials-section.css'); /* New */
+@import url('pages/partials/contact-section.css');
+@import url('pages/partials/menu-overlay.css'); /* Menu */

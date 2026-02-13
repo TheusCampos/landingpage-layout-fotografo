@@ -1,0 +1,48 @@
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--ink);
+    z-index: 99; /* Below menu-btn (100) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform, opacity;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-item {
+    font-family: var(--font-serif);
+    font-size: 8vw;
+    color: var(--paper);
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s;
+}
+
+.menu-item:hover {
+    color: var(--accent);
+    font-style: italic;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .menu-item {
+        font-size: 15vw;
+    }
+}

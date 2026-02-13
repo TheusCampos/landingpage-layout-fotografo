@@ -1,0 +1,90 @@
+.hero {
+  height: 100dvh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img {
+  position: absolute;
+  width: 30vw;
+  filter: grayscale(100%) contrast(1.2);
+  transition: transform 0.2s;
+}
+
+.hero-img.main {
+  z-index: 1;
+  left: 35%;
+  top: 15%;
+  width: 30vw;
+}
+
+.hero-img.sec {
+  z-index: 0;
+  left: 10%;
+  bottom: 10%;
+  width: 20vw;
+  opacity: 0.8;
+}
+
+.hero-img.ter {
+  z-index: 0;
+  right: 10%;
+  top: 10%;
+  width: 20vw;
+  opacity: 0.8;
+}
+
+.hero-title {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+}
+
+.hero-title .display-text {
+  white-space: normal;
+}
+
+.hero-title__line {
+  display: block;
+}
+
+.hero-title__line--italic {
+  font-style: italic;
+}
+
+/* Texto Marquee Vertical */
+.scroll-indicator {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  writing-mode: vertical-rl;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.3;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-img.main {
+      width: 70vw;
+      left: 15%;
+  }
+  .hero-img.sec,
+  .hero-img.ter {
+      display: none;
+  }
+}

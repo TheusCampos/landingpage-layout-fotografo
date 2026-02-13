@@ -1,0 +1,106 @@
+/* Typography Utilities */
+.display-text {
+  font-family: var(--font-serif);
+  font-size: 12vw;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.sans-bold {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.blend {
+  mix-blend-mode: difference;
+  color: white;
+}
+
+/* Cursor Customizado */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.cursor.active {
+  width: 80px;
+  height: 80px;
+  background: white;
+  mix-blend-mode: exclusion;
+}
+
+.cursor-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  opacity: 0;
+}
+
+.cursor.active .cursor-text {
+  opacity: 1;
+  color: black;
+}
+
+/* Menu Overlay Button */
+.menu-btn {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  z-index: 100;
+  mix-blend-mode: difference;
+  color: white;
+  cursor: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 16px;
+}
+
+.skip-link:focus {
+  left: 16px;
+  z-index: 10000;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+  .display-text {
+      font-size: 18vw;
+  }
+}
+
+@media (pointer: coarse) {
+  .menu-btn {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,139 @@
+.footer-wrapper {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-container {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ink); /* Initial background to match user request */
+  overflow: hidden;
+  position: relative;
+}
+
+.cta-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  font-size: 5vw;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--paper); /* Ensure text is visible on black background */
+}
+
+.contact-info {
+  opacity: 0; /* Initially hidden */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  position: relative;
+}
+
+.social-links {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.footer-link {
+  font-family: var(--font-sans);
+  font-size: 2rem;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--paper);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  will-change: transform, opacity;
+  pointer-events: none; /* Initially disabled as per guide */
+}
+
+.footer-link.is-visible {
+  pointer-events: all;
+}
+
+.footer-link:hover {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-text-stroke: 0;
+}
+
+.credits {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5vw;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+      height: auto; /* Allow content to dictate height on mobile */
+      min-height: 100dvh;
+      padding: 100px 0;
+  }
+
+  .cta-text {
+    font-size: 15vw;
+    line-height: 1.1;
+    position: relative; /* Static position on mobile for better flow */
+    transform: none;
+    top: auto;
+    left: auto;
+    margin-bottom: 50px;
+    opacity: 1 !important; /* Force visibility if GSAP hides it */
+  }
+  
+  .contact-info {
+      position: relative;
+      opacity: 1 !important; /* Force visibility */
+      height: auto;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .footer-link {
+    font-size: 1.5rem;
+    pointer-events: all !important; /* Enable interaction */
+  }
+
+  .footer-link.is-visible {
+      /* Remove specific logic for mobile */
+  }
+
+  .credits {
+    position: relative;
+    bottom: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+  }
+}
+
+/* Tailwind utilities are used for some colors/spacing in HTML, but these are core styles */

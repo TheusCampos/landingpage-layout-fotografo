@@ -1,0 +1,46 @@
+.features-section {
+  padding: 100px 5vw;
+  background: var(--bg);
+  color: var(--ink);
+  position: relative;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.feature-card {
+  border-top: 1px solid var(--ink);
+  padding-top: 20px;
+  transition: transform 0.3s var(--easing);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 20px;
+  color: var(--accent);
+  fill: currentColor;
+  display: inline-block;
+}
+
+.feature-title {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.feature-desc {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
