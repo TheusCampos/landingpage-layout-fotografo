@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (window.gsap && window.ScrollTrigger) {
     initGSAP();
+    window.addEventListener('load', () => {
+      ScrollTrigger.refresh();
+    });
   } else {
     applyNoAnimationFallback();
   }

@@ -11,6 +11,100 @@ export function initGSAP() {
   const paper = getComputedStyle(document.documentElement).getPropertyValue('--paper').trim() || '#cdcaca';
   const ink = getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#000000';
 
+  // Perform DOM manipulation (splitting text) once, outside matchMedia
+  const manifesto = document.querySelector('.manifesto');
+  if (manifesto && !manifesto.querySelector('.char')) {
+    splitTextToSpans(manifesto, 'char');
+  }
+
+  // Generic animations that should work on all devices
+  const initGenericAnimations = () => {
+    // Reveal elements
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach((element) => {
+      if (element.classList.contains('manifesto')) return;
+
+      gsap.fromTo(
+        element,
+        { y: 50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: element,
+            start: 'top 85%',
+          },
+        },
+      );
+    });
+
+    // Headings
+    const headings = document.querySelectorAll('.display-text:not(.cta-text)');
+    headings.forEach((heading) => {
+      gsap.from(heading, {
+        y: 100,
+        opacity: 0,
+        duration: 1.5,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: heading,
+          start: 'top 90%',
+        },
+      });
+    });
+
+    // Manifesto Text Stagger
+    if (manifesto) {
+      gsap.from('.manifesto .char', {
+        scrollTrigger: {
+          trigger: '.manifesto',
+          start: 'top 80%',
+          end: 'bottom 50%',
+          scrub: 1,
+        },
+        opacity: 0.1,
+        color: '#555',
+        stagger: 0.01,
+        ease: 'power2.out',
+      });
+    }
+
+    // Gallery Parallax (simpler on mobile, full on desktop)
+    document.querySelectorAll('.gallery-item').forEach((item) => {
+      const image = item.querySelector('img');
+      if (!image) return;
+
+      gsap.to(image, {
+        y: -50,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: item,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    });
+
+    // Testimonials
+    gsap.from('.testimonial-card', {
+      scrollTrigger: {
+        trigger: '.testimonials-section',
+        start: 'top 75%',
+      },
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: 'power3.out',
+    });
+  };
+
+  // Initialize generic animations
+  initGenericAnimations();
+
   ScrollTrigger.matchMedia({
     '(min-width: 769px)': () => {
       const scrollContainer = document.querySelector('.scroll-container');
@@ -30,23 +124,6 @@ export function initGSAP() {
             scrub: 1,
             invalidateOnRefresh: true,
           },
-        });
-      }
-
-      const manifesto = document.querySelector('.manifesto');
-      if (manifesto) {
-        splitTextToSpans(manifesto, 'char');
-        gsap.from('.manifesto .char', {
-          scrollTrigger: {
-            trigger: '.manifesto',
-            start: 'top 80%',
-            end: 'bottom 50%',
-            scrub: 1,
-          },
-          opacity: 0.1,
-          color: '#555',
-          stagger: 0.01,
-          ease: 'power2.out',
         });
       }
 
@@ -106,68 +183,6 @@ export function initGSAP() {
           },
         });
       }
-
-      const revealElements = document.querySelectorAll('.reveal');
-      revealElements.forEach((element) => {
-        if (element.classList.contains('manifesto')) return;
-
-        gsap.fromTo(
-          element,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: element,
-              start: 'top 80%',
-            },
-          },
-        );
-      });
-
-      const headings = document.querySelectorAll('.display-text:not(.cta-text)');
-      headings.forEach((heading) => {
-        gsap.from(heading, {
-          y: 100,
-          opacity: 0,
-          duration: 1.5,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: heading,
-            start: 'top 90%',
-          },
-        });
-      });
-
-      document.querySelectorAll('.gallery-item').forEach((item) => {
-        const image = item.querySelector('img');
-        if (!image) return;
-
-        gsap.to(image, {
-          y: -50,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
-        });
-      });
-
-      gsap.from('.testimonial-card', {
-        scrollTrigger: {
-          trigger: '.testimonials-section',
-          start: 'top 70%',
-        },
-        y: 100,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out',
-      });
     },
     '(max-width: 768px)': () => {
       const footerLinks = document.querySelectorAll('.footer-link');
