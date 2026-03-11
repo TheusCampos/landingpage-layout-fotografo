@@ -19,8 +19,18 @@
   color: var(--ink); /* Cor final */
 }
 
-/* Os spans serão manipulados pelo GSAP, mas definimos o base */
 .manifesto .char {
   display: inline-block;
   will-change: opacity, color;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bio-section {
+    padding: 100px 5vw;
+  }
+  .manifesto {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
 }

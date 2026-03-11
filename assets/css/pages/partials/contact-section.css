@@ -95,19 +95,20 @@
   }
 
   .cta-text {
-    font-size: 15vw;
+    font-size: 3rem; /* Adjusted for better mobile fit */
     line-height: 1.1;
     position: relative; /* Static position on mobile for better flow */
     transform: none;
     top: auto;
     left: auto;
     margin-bottom: 50px;
-    opacity: 1 !important; /* Force visibility if GSAP hides it */
+    opacity: 0; /* Let GSAP handle visibility */
+    white-space: normal; /* Allow wrapping */
   }
   
   .contact-info {
       position: relative;
-      opacity: 1 !important; /* Force visibility */
+      opacity: 0; /* Let GSAP handle visibility */
       height: auto;
   }
 
@@ -115,11 +116,14 @@
     flex-direction: column;
     gap: 30px;
     margin-bottom: 50px;
+    text-align: center;
   }
   
   .footer-link {
     font-size: 1.5rem;
     pointer-events: all !important; /* Enable interaction */
+    color: var(--paper); /* Fill color on mobile for readability */
+    -webkit-text-stroke: 0;
   }
 
   .footer-link.is-visible {

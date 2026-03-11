@@ -45,5 +45,6 @@
 @media (max-width: 768px) {
     .menu-item {
         font-size: 15vw;
+        padding: 10px; /* Better touch target */
     }
 }

@@ -71,3 +71,19 @@
   margin-top: 5px;
   font-weight: 600;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-container {
+      gap: 20px;
+      padding-bottom: 20px;
+      -webkit-overflow-scrolling: touch;
+  }
+  .testimonial-card {
+      min-width: 85vw;
+      padding: 30px;
+  }
+  .testimonial-text {
+      font-size: 1.2rem;
+  }
+}

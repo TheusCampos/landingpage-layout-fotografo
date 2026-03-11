@@ -73,8 +73,21 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .scroll-container {
+      /* Revert to desktop style for GSAP pinning */
+      height: 100dvh;
+      overflow: hidden;
+  }
+
+  .horizontal-wrapper {
+      width: fit-content;
+      height: 100%;
+      padding-left: 5vw;
+      padding-right: 5vw;
+  }
+
   .editorial-item {
-      width: 80vw;
+      width: 85vw; /* Slightly larger on mobile */
       height: 60vh;
       margin-right: 5vw;
   }

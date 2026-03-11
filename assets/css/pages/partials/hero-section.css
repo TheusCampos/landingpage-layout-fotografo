@@ -70,9 +70,20 @@
   .hero-img.main {
       width: 70vw;
       left: 15%;
+      top: 20%;
   }
   .hero-img.sec,
   .hero-img.ter {
-      display: none;
+      display: block; /* Show other images for parallax effect */
+      width: 40vw;
+      opacity: 0.5;
+  }
+  .hero-img.sec {
+      left: -10%;
+      bottom: 20%;
+  }
+  .hero-img.ter {
+      right: -10%;
+      top: 10%;
   }
 }

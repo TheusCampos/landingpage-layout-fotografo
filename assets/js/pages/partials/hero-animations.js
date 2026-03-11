@@ -1,12 +1,29 @@
 export function initHeroParallax() {
-  if (window.matchMedia('(pointer: coarse)').matches) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
   const heroSection = document.querySelector('.hero');
   const layers = document.querySelectorAll('.hero-img');
 
   if (!heroSection || layers.length === 0) return;
 
+  // Mobile Parallax (Device Orientation / Scroll)
+  if (window.matchMedia('(pointer: coarse)').matches) {
+    // Simple scroll parallax for mobile
+    layers.forEach((layer, i) => {
+      const speed = i * 0.2 + 0.1;
+      gsap.to(layer, {
+        y: 50 * speed,
+        scrollTrigger: {
+          trigger: heroSection,
+          start: 'top top',
+          scrub: true
+        }
+      });
+    });
+    return;
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Desktop Mouse Parallax
   let rafId = 0;
   let lastX = 0;
   let lastY = 0;

@@ -41,3 +41,15 @@
   line-height: 1.6;
   opacity: 0.8;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .features-section {
+    padding: 80px 5vw;
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+  }
+}

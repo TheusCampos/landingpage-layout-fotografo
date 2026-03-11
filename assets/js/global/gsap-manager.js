@@ -185,16 +185,83 @@ export function initGSAP() {
       }
     },
     '(max-width: 768px)': () => {
-      const footerLinks = document.querySelectorAll('.footer-link');
-      footerLinks.forEach((link) => link.classList.add('is-visible'));
+      // Replicate Desktop Horizontal Scroll logic for Mobile
+      const scrollContainer = document.querySelector('.scroll-container');
+      const wrapper = document.querySelector('.horizontal-wrapper');
 
-      ScrollTrigger.create({
-        trigger: '.footer-container',
-        start: 'top 80%',
-        onEnter: () => gsap.to('body', { backgroundColor: ink, duration: 0.5 }),
-        onLeaveBack: () => gsap.to('body', { backgroundColor: paper, duration: 0.5 }),
-      });
+      if (scrollContainer && wrapper) {
+        // Calculate scroll amount: total width - viewport width
+        const getScrollAmount = () => -(wrapper.scrollWidth - window.innerWidth);
+
+        gsap.to(wrapper, {
+          x: getScrollAmount,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: scrollContainer,
+            start: 'top top',
+            end: () => `+=${wrapper.scrollWidth - window.innerWidth}`, // Scroll length
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            // Anticipate pin to prevent stutter
+            anticipatePin: 1
+          },
+        });
+      }
+
+      // Replicate Desktop Footer Logic (Simplified Scale)
+      const footerWrapper = document.querySelector('.footer-container'); // Use container as trigger on mobile if wrapper is not used same way
+      const ctaPhrase = document.querySelector('#cta-phrase');
+      const contactDetails = document.querySelector('#contact-details');
+      const footerLinks = document.querySelectorAll('.footer-link');
+
+      // Reset styles set by previous fallbacks
+      if(ctaPhrase) gsap.set(ctaPhrase, { opacity: 1, scale: 1 });
+      if(contactDetails) gsap.set(contactDetails, { opacity: 0 });
+
+      if (footerWrapper && ctaPhrase && contactDetails) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: footerWrapper,
+            start: "top top", // When footer hits top
+            end: "+=100%", // Pin for 1 screen height
+            scrub: 1,
+            pin: true,
+            onLeave: () => {
+               footerLinks.forEach(link => link.classList.add('is-visible'));
+            },
+            onEnterBack: () => {
+               footerLinks.forEach(link => link.classList.remove('is-visible'));
+            }
+          }
+        });
+
+        // Mobile Zoom (less aggressive)
+        tl.to(ctaPhrase, {
+          scale: 5, // Smaller scale for mobile
+          duration: 1,
+          ease: "power2.inOut"
+        });
+
+        tl.to("body", {
+            backgroundColor: ink,
+            duration: 0.5,
+            ease: "power2.inOut"
+        }, "<");
+
+        tl.to(ctaPhrase, {
+            opacity: 0,
+            duration: 0.5
+        }, ">-0.5");
+
+        tl.to(contactDetails, {
+            opacity: 1,
+            duration: 0.5,
+            onComplete: () => {
+                footerLinks.forEach(link => link.classList.add('is-visible'));
+            }
+        });
+      }
     },
   });
-
 }
